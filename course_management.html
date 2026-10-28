@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-blue-600 text-white p-4">
+        <h1 class="text-xl font-bold">Student Assignment Organizer</h1>
+        <nav class="mt-2">
+            <a href="index.html" class="mr-4">Home</a>
+            <a href="course_management.html" class="mr-4">Course Management</a>
+            <a href="assignment_tracking.html" class="mr-4">Assignment Tracking</a>
+            <a href="calendar_view.html" class="mr-4">Calendar View</a>
+            <a href="progress_dashboard.html">Progress Dashboard</a>
+        </nav>
+    </header>
+    <main class="p-4">
+        <h2 class="text-xl font-bold mb-4">Manage Your Courses</h2>
+        <form id="courseForm" class="mb-4">
+            <input type="text" id="courseName" class="border p-2 mr-2" placeholder="Course Name" required>
+            <button class="bg-blue-500 text-white p-2">Add Course</button>
+        </form>
+        <ul id="courseList">
+            <li>No courses added yet.</li>
+        </ul>
+        <script>
+            const form = document.getElementById('courseForm');
+            const courseList = document.getElementById('courseList');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const courseName = document.getElementById('courseName').value;
+                const courseItem = document.createElement('li');
+                courseItem.textContent = courseName;
+                courseList.appendChild(courseItem);
+                form.reset();
+            });
+        </script>
+    </main>
+</body>
+</html>

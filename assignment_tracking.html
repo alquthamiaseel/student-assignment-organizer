@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Tracking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-blue-600 text-white p-4">
+        <h1 class="text-xl font-bold">Student Assignment Organizer</h1>
+        <nav class="mt-2">
+            <a href="index.html" class="mr-4">Home</a>
+            <a href="course_management.html" class="mr-4">Course Management</a>
+            <a href="assignment_tracking.html" class="mr-4">Assignment Tracking</a>
+            <a href="calendar_view.html" class="mr-4">Calendar View</a>
+            <a href="progress_dashboard.html">Progress Dashboard</a>
+        </nav>
+    </header>
+    <main class="p-4">
+        <h2 class="text-xl font-bold mb-4">Track Your Assignments</h2>
+        <form id="assignmentForm" class="mb-4">
+            <input type="text" id="assignmentName" class="border p-2 mr-2" placeholder="Assignment Name" required>
+            <input type="date" id="dueDate" class="border p-2 mr-2" required>
+            <button class="bg-blue-500 text-white p-2">Add Assignment</button>
+        </form>
+        <ul id="assignmentList">
+            <li>No assignments added yet.</li>
+        </ul>
+        <script>
+            const form = document.getElementById('assignmentForm');
+            const assignmentList = document.getElementById('assignmentList');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const assignmentName = document.getElementById('assignmentName').value;
+                const dueDate = document.getElementById('dueDate').value;
+                const assignmentItem = document.createElement('li');
+                assignmentItem.textContent = `${assignmentName} - Due: ${dueDate}`;
+                assignmentList.appendChild(assignmentItem);
+                form.reset();
+            });
+        </script>
+    </main>
+</body>
+</html>
